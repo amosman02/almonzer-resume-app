@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/widgets/kf_drawer.dart';
 
-class Schedules extends KFDrawerContent {
-  Schedules({Key? key});
+class Experience extends KFDrawerContent {
+  Experience({super.key});
 
   @override
-  _SchedulesState createState() => _SchedulesState();
+  _ExperienceState createState() => _ExperienceState();
 }
 
-class _SchedulesState extends State<Schedules> {
+class _ExperienceState extends State<Experience> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -37,7 +37,7 @@ class _SchedulesState extends State<Schedules> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  Text('Schedules'),
+                  Text('Experience'),
                 ],
               ),
             ),

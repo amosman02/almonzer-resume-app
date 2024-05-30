@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/widgets/kf_drawer.dart';
 
-class Notifications extends KFDrawerContent {
-  Notifications({super.key});
+class Contact extends KFDrawerContent {
+  Contact({Key? key});
 
   @override
-  _NotificationsState createState() => _NotificationsState();
+  _ContactState createState() => _ContactState();
 }
 
-class _NotificationsState extends State<Notifications> {
+class _ContactState extends State<Contact> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -37,7 +37,7 @@ class _NotificationsState extends State<Notifications> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  Text('Notifications'),
+                  Text('Contact'),
                 ],
               ),
             ),
