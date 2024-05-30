@@ -1,0 +1,115 @@
+import 'package:flutter/material.dart';
+import 'package:portfolio/detailpage.dart';
+import 'package:portfolio/widgets/kf_drawer.dart';
+
+class Home extends KFDrawerContent {
+  Home({Key? key});
+
+  @override
+  _HomeState createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
+  @override
+  Widget build(BuildContext context) {
+    return SafeArea(
+      child: ListView(
+        children: <Widget>[
+          Column(
+            children: <Widget>[
+              Row(
+                children: <Widget>[
+                  ClipRRect(
+                    borderRadius: const BorderRadius.all(Radius.circular(32.0)),
+                    child: Material(
+                      shadowColor: Colors.transparent,
+                      color: Colors.transparent,
+                      child: IconButton(
+                        icon: const Icon(
+                          Icons.menu,
+                          color: Colors.black,
+                        ),
+                        onPressed: widget.onMenuPressed,
+                      ),
+                    ),
+                  ),
+                  const Spacer(),
+                  Container(
+                    height: 40,
+                    width: 40,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20),
+                        image: const DecorationImage(
+                            image: AssetImage('assets/images/image.jpg'),
+                            fit: BoxFit.cover)),
+                  ),
+                  const SizedBox(width: 15)
+                ],
+              ),
+              Padding(
+                padding: const EdgeInsets.all(15),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    const Row(
+                      children: <Widget>[
+                        Text("About me", style: TextStyle(fontSize: 17)),
+                      ],
+                    ),
+                    const SizedBox(height: 30),
+                    const Text("Almonzer Osman",
+                        style: TextStyle(
+                            fontSize: 19, fontWeight: FontWeight.bold)),
+                    const SizedBox(height: 15),
+                    const Text(
+                      "Highly motivated and results-oriented software engineer with over 6 years of experience delivering innovative solutions across diverse projects. Skilled in frontend development with Vue.js, React.js, and Next.js, as well as mobile application development using Flutter. Excels in managing complex technical challenges and collaborating with stakeholders to exceed expectations.",
+                      style: TextStyle(color: Colors.grey),
+                    ),
+                    const SizedBox(height: 30),
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.45,
+                      width: double.infinity,
+                      child: Container(
+                        width: 325,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(25),
+                          image: const DecorationImage(
+                            image: AssetImage('assets/images/me-3.jpg'),
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 15),
+                    const Text(
+                        "Use the menu to navigate to different sections about me",
+                        style: TextStyle(
+                            fontSize: 14, fontWeight: FontWeight.bold)),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget listItem(String imgpath) {
+    return InkWell(
+      onTap: () {
+        Navigator.of(context).push(MaterialPageRoute(
+            builder: (context) => DetailPage(
+                  imgPath: imgpath,
+                )));
+      },
+      child: Container(
+        width: 325,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(25),
+          image: DecorationImage(image: AssetImage(imgpath), fit: BoxFit.cover),
+        ),
+      ),
+    );
+  }
+}
