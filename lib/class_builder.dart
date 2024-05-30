@@ -1,9 +1,8 @@
-import 'package:portfolio/profile.dart';
+import 'package:portfolio/experience.dart';
 import 'package:portfolio/home.dart';
-import 'package:portfolio/schedules.dart';
-import 'package:portfolio/settings.dart';
-import 'package:portfolio/notifications.dart';
-import 'package:portfolio/stats.dart';
+import 'package:portfolio/contact.dart';
+import 'package:portfolio/projects.dart';
+import 'package:portfolio/education.dart';
 
 typedef Constructor<T> = T Function();
 
@@ -17,11 +16,10 @@ void register<T>(Constructor<T> constructor) {
 class ClassBuilder {
   static void registerClasses() {
     register<Home>(() => Home());
-    register<Profile>(() => Profile());
-    register<Notifications>(() => Notifications());
-    register<Stats>(() => Stats());
-    register<Schedules>(() => Schedules());
-    register<Settings>(() => Settings());
+    register<Experience>(() => Experience());
+    register<Projects>(() => Projects());
+    register<Education>(() => Education());
+    register<Contact>(() => Contact());
   }
 
   static dynamic fromString(String type) {

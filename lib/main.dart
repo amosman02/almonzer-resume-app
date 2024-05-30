@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/profile.dart';
+import 'package:portfolio/experience.dart';
 import 'package:portfolio/class_builder.dart';
 import 'package:portfolio/home.dart';
-import 'package:portfolio/schedules.dart';
-import 'package:portfolio/settings.dart';
-import 'package:portfolio/stats.dart';
+import 'package:portfolio/contact.dart';
+import 'package:portfolio/education.dart';
 import 'package:portfolio/widgets/kf_drawer.dart';
+import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 
 void main() {
   ClassBuilder.registerClasses();
@@ -48,50 +48,57 @@ class _MainWidgetState extends State<MainWidget> with TickerProviderStateMixin {
       initialPage: ClassBuilder.fromString('Home'),
       items: [
         KFDrawerItem.initWithPage(
-          text:
-              const Text('Home', style: TextStyle(color: Colors.white, fontSize: 18)),
-          icon: const Icon(Icons.home, color: Colors.white),
+          text: const Text('Home',
+              style: TextStyle(color: Colors.white, fontSize: 18)),
+          icon: const Icon(
+            FeatherIcons.home,
+            color: Colors.white,
+          ),
           page: Home(),
         ),
         KFDrawerItem.initWithPage(
           text: const Text(
-            'Profile',
+            'Work Experience',
             style: TextStyle(color: Colors.white, fontSize: 18),
           ),
-          icon: const Icon(Icons.account_box, color: Colors.white),
-          page: Profile(),
+          icon: const Icon(
+            FeatherIcons.briefcase,
+            color: Colors.white,
+          ),
+          page: Experience(),
         ),
         KFDrawerItem.initWithPage(
           text: const Text(
-            'Notifications',
+            'Projects',
             style: TextStyle(color: Colors.white, fontSize: 18),
           ),
-          icon: const Icon(Icons.notifications_active, color: Colors.white),
+          icon: const Icon(
+            FeatherIcons.cpu,
+            color: Colors.white,
+          ),
           page: ClassBuilder.fromString('Notifications'),
         ),
         KFDrawerItem.initWithPage(
           text: const Text(
-            'Stats',
+            'Education',
             style: TextStyle(color: Colors.white, fontSize: 18),
           ),
-          icon: const Icon(Icons.trending_up, color: Colors.white),
-          page: Stats(),
+          icon: const Icon(
+            FeatherIcons.feather,
+            color: Colors.white,
+          ),
+          page: Education(),
         ),
         KFDrawerItem.initWithPage(
           text: const Text(
-            'Schedules',
+            'Contact me',
             style: TextStyle(color: Colors.white, fontSize: 18),
           ),
-          icon: const Icon(Icons.av_timer, color: Colors.white),
-          page: Schedules(),
-        ),
-        KFDrawerItem.initWithPage(
-          text: const Text(
-            'Settings',
-            style: TextStyle(color: Colors.white, fontSize: 18),
+          icon: const Icon(
+            FeatherIcons.mail,
+            color: Colors.white,
           ),
-          icon: const Icon(Icons.settings, color: Colors.white),
-          page: Settings(),
+          page: Contact(),
         ),
       ],
     );
@@ -113,10 +120,12 @@ class _MainWidgetState extends State<MainWidget> with TickerProviderStateMixin {
                   height: 50,
                   width: 50,
                   decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(25),
-                      image: const DecorationImage(
-                          image: AssetImage('assets/images/image.jpg'),
-                          fit: BoxFit.cover)),
+                    borderRadius: BorderRadius.circular(25),
+                    image: const DecorationImage(
+                        image: AssetImage('assets/images/me-1.jpg'),
+                        fit: BoxFit.cover,
+                        scale: 5),
+                  ),
                 ),
                 const SizedBox(
                   width: 10,
@@ -124,22 +133,15 @@ class _MainWidgetState extends State<MainWidget> with TickerProviderStateMixin {
                 const Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    Text('Scarlett Johansson',
-                        style:
-                            TextStyle(fontSize: 17, color: Colors.white)),
+                    Text('Almonzer Osman',
+                        style: TextStyle(fontSize: 17, color: Colors.white)),
                     SizedBox(height: 2),
-                    Text('Actress',
+                    Text('Software Engineer',
                         style: TextStyle(fontSize: 15, color: Colors.grey)),
                   ],
                 )
               ],
             ),
-          ),
-        ),
-        footer: KFDrawerItem(
-          text: const Text(
-            'Logout',
-            style: TextStyle(color: Colors.grey, fontSize: 18),
           ),
         ),
         decoration: const BoxDecoration(
