@@ -21,13 +21,13 @@ class ExperienceCard extends StatelessWidget {
     return Container(
       width: MediaQuery.of(context).size.width,
       color: isLight ? Colors.white : const Color.fromRGBO(31, 58, 47, 1.0),
-      padding: const EdgeInsets.all(20),
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
       child: Column(
         children: [
           Container(
             height: 225,
             decoration: BoxDecoration(
-              borderRadius: const BorderRadius.all(Radius.elliptical(10, 10)),
+              borderRadius: const BorderRadius.all(Radius.elliptical(20, 20)),
               image: DecorationImage(
                 image: NetworkImage(imageUrl),
                 fit: BoxFit.contain,
