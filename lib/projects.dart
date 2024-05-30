@@ -6,7 +6,7 @@ class Projects extends KFDrawerContent {
   Projects({super.key});
 
   @override
-  _ProjectsState createState() => _ProjectsState();
+  State<Projects> createState() => _ProjectsState();
 }
 
 class _ProjectsState extends State<Projects> {
