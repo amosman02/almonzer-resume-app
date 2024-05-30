@@ -4,6 +4,7 @@ import 'package:portfolio/class_builder.dart';
 import 'package:portfolio/home.dart';
 import 'package:portfolio/contact.dart';
 import 'package:portfolio/education.dart';
+import 'package:portfolio/projects.dart';
 import 'package:portfolio/widgets/kf_drawer.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 
@@ -76,7 +77,7 @@ class _MainWidgetState extends State<MainWidget> with TickerProviderStateMixin {
             FeatherIcons.cpu,
             color: Colors.white,
           ),
-          page: ClassBuilder.fromString('Notifications'),
+          page: Projects(),
         ),
         KFDrawerItem.initWithPage(
           text: const Text(
