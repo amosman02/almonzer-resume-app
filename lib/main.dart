@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio/experience.dart';
 import 'package:portfolio/class_builder.dart';
 import 'package:portfolio/home.dart';
@@ -7,6 +8,7 @@ import 'package:portfolio/education.dart';
 import 'package:portfolio/projects.dart';
 import 'package:portfolio/widgets/kf_drawer.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
+import 'package:portfolio/constants/colors.dart' as constants;
 
 void main() {
   ClassBuilder.registerClasses();
@@ -22,6 +24,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData(
         primarySwatch: Colors.blue,
+        fontFamily: GoogleFonts.montserratAlternates().fontFamily,
       ),
       debugShowCheckedModeBanner: false,
       home: const MainWidget(
@@ -50,54 +53,54 @@ class _MainWidgetState extends State<MainWidget> with TickerProviderStateMixin {
       items: [
         KFDrawerItem.initWithPage(
           text: const Text('Home',
-              style: TextStyle(color: Colors.white, fontSize: 18)),
+              style: TextStyle(color: constants.darkBlue, fontSize: 18)),
           icon: const Icon(
             FeatherIcons.home,
-            color: Colors.white,
+            color: constants.darkBlue,
           ),
           page: Home(),
         ),
         KFDrawerItem.initWithPage(
           text: const Text(
             'Work Experience',
-            style: TextStyle(color: Colors.white, fontSize: 18),
+            style: TextStyle(color: constants.darkBlue, fontSize: 18),
           ),
           icon: const Icon(
             FeatherIcons.briefcase,
-            color: Colors.white,
+            color: constants.darkBlue,
           ),
           page: Experience(),
         ),
         KFDrawerItem.initWithPage(
           text: const Text(
             'Projects',
-            style: TextStyle(color: Colors.white, fontSize: 18),
+            style: TextStyle(color: constants.darkBlue, fontSize: 18),
           ),
           icon: const Icon(
             FeatherIcons.cpu,
-            color: Colors.white,
+            color: constants.darkBlue,
           ),
           page: Projects(),
         ),
         KFDrawerItem.initWithPage(
           text: const Text(
             'Education',
-            style: TextStyle(color: Colors.white, fontSize: 18),
+            style: TextStyle(color: constants.darkBlue, fontSize: 18),
           ),
           icon: const Icon(
             FeatherIcons.feather,
-            color: Colors.white,
+            color: constants.darkBlue,
           ),
           page: Education(),
         ),
         KFDrawerItem.initWithPage(
           text: const Text(
             'Contact me',
-            style: TextStyle(color: Colors.white, fontSize: 18),
+            style: TextStyle(color: constants.darkBlue, fontSize: 18),
           ),
           icon: const Icon(
             FeatherIcons.mail,
-            color: Colors.white,
+            color: constants.darkBlue,
           ),
           page: Contact(),
         ),
@@ -108,6 +111,7 @@ class _MainWidgetState extends State<MainWidget> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: constants.bgColor,
       body: KFDrawer(
         controller: _drawerController,
         header: Align(
@@ -135,10 +139,18 @@ class _MainWidgetState extends State<MainWidget> with TickerProviderStateMixin {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     Text('Almonzer Osman',
-                        style: TextStyle(fontSize: 17, color: Colors.white)),
+                        style: TextStyle(
+                          fontSize: 17,
+                          fontWeight: FontWeight.bold,
+                          color: constants.darkBlue,
+                        )),
                     SizedBox(height: 2),
                     Text('Software Engineer',
-                        style: TextStyle(fontSize: 15, color: Colors.grey)),
+                        style: TextStyle(
+                          fontSize: 15,
+                          fontWeight: FontWeight.w500,
+                          color: constants.darkBlue,
+                        )),
                   ],
                 )
               ],
@@ -150,8 +162,8 @@ class _MainWidgetState extends State<MainWidget> with TickerProviderStateMixin {
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
             colors: [
-              Color.fromRGBO(31, 58, 47, 1.0),
-              Color.fromRGBO(31, 58, 47, 1.0)
+              constants.darkBeige,
+              constants.lightBeige,
             ],
             tileMode: TileMode.repeated,
           ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/constants/colors.dart' as constants;
 
 class ExperienceCard extends StatelessWidget {
   const ExperienceCard({
@@ -20,7 +21,7 @@ class ExperienceCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: MediaQuery.of(context).size.width,
-      color: isLight ? Colors.white : const Color.fromRGBO(31, 58, 47, 1.0),
+      color: isLight ? constants.bgColor : constants.darkBeige,
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
       child: Column(
         children: [
@@ -40,7 +41,7 @@ class ExperienceCard extends StatelessWidget {
             style: TextStyle(
               fontSize: 18,
               fontWeight: FontWeight.w600,
-              color: !isLight ? Colors.white : Colors.black87,
+              color: !isLight ? constants.bgColor : constants.darkBeige,
             ),
           ),
           const SizedBox(height: 5),
@@ -48,7 +49,7 @@ class ExperienceCard extends StatelessWidget {
             company,
             style: TextStyle(
               fontSize: 14,
-              color: !isLight ? Colors.white : Colors.black87,
+              color: !isLight ? constants.bgColor : constants.darkBlue,
               fontWeight: FontWeight.w600,
             ),
           ),
@@ -57,7 +58,7 @@ class ExperienceCard extends StatelessWidget {
             description,
             style: TextStyle(
               fontSize: 14,
-              color: !isLight ? Colors.white : Colors.black87,
+              color: !isLight ? constants.bgColor : constants.darkBlue,
               height: 1.7,
             ),
           ),
