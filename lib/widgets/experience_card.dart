@@ -21,36 +21,64 @@ class ExperienceCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: MediaQuery.of(context).size.width,
-      color: isLight ? constants.bgColor : constants.darkBeige,
+      margin: const EdgeInsets.all(10),
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
+      decoration: BoxDecoration(
+        borderRadius: const BorderRadius.all(
+          Radius.elliptical(35, 35),
+        ),
+        color: isLight ? constants.bgColor : constants.darkBeige,
+      ),
       child: Column(
         children: [
           Container(
-            height: 225,
+            padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
             decoration: BoxDecoration(
-              borderRadius: const BorderRadius.all(Radius.elliptical(20, 20)),
-              image: DecorationImage(
-                image: NetworkImage(imageUrl),
-                fit: BoxFit.contain,
+              color: constants.veryLightBeige,
+              borderRadius: const BorderRadius.all(
+                Radius.elliptical(15, 15),
               ),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.grey.withOpacity(0.5),
+                  spreadRadius: 1,
+                  blurRadius: 7,
+                  offset: const Offset(0, 3),
+                ),
+              ],
             ),
-          ),
-          const SizedBox(height: 15),
-          Text(
-            title,
-            style: TextStyle(
-              fontSize: 18,
-              fontWeight: FontWeight.w600,
-              color: !isLight ? constants.bgColor : constants.darkBeige,
-            ),
-          ),
-          const SizedBox(height: 5),
-          Text(
-            company,
-            style: TextStyle(
-              fontSize: 14,
-              color: !isLight ? constants.bgColor : constants.darkBlue,
-              fontWeight: FontWeight.w600,
+            child: Column(
+              children: [
+                Container(
+                  height: 225,
+                  decoration: BoxDecoration(
+                    borderRadius:
+                        const BorderRadius.all(Radius.elliptical(20, 20)),
+                    image: DecorationImage(
+                      image: NetworkImage(imageUrl),
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 15),
+                Text(
+                  title,
+                  style: const TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w600,
+                    color: constants.darkBeige,
+                  ),
+                ),
+                const SizedBox(height: 5),
+                Text(
+                  company,
+                  style: const TextStyle(
+                    fontSize: 14,
+                    color: constants.darkBlue,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+              ],
             ),
           ),
           const SizedBox(height: 20),
