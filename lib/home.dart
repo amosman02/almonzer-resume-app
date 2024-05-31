@@ -33,17 +33,6 @@ class _HomeState extends State<Home> {
                       ),
                     ),
                   ),
-                  const Spacer(),
-                  Container(
-                    height: 40,
-                    width: 40,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                        image: const DecorationImage(
-                            image: AssetImage('assets/images/image.jpg'),
-                            fit: BoxFit.cover)),
-                  ),
-                  const SizedBox(width: 15)
                 ],
               ),
               Padding(

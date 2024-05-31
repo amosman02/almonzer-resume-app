@@ -17,7 +17,7 @@ class _ProjectsState extends State<Projects> {
         'title': 'Checkedin Mobile App',
         'company': 'Freelancer',
         'imageUrl':
-            'https://kinsta.com/wp-content/uploads/2022/05/nuxt-js-logo.jpeg',
+            'https://lh3.googleusercontent.com/drive-viewer/AKGpihZEmIm8cayzXx81FYaM9mB8vDhUEduINaYCdyUZ6rw0QGPsco6LsZDD_oPt7iAM4Hs-U4o4R4IY6SttjOmAmUHeYkG0zysnfEs=w3840-h1822-rw-v1',
         'description': """
 Checkedin simplifies travel by handling luggage logistics. Users schedule luggage pickup 24 hours before their flight, ensuring a stress-free journey. As a project contributor, I helped develop key features for seamless user experience using Flutter, Firebase, FirebaseAuth, and Firebase Firestore.
             """,
