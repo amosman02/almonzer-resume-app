@@ -219,11 +219,25 @@ class _RegisterModalState extends State<RegisterModal> {
                 ),
               ),
               const SizedBox(height: 30),
+              Row(
+                children: <Widget>[
+                  const Expanded(child: Divider()),
+                  Container(
+                    margin: const EdgeInsets.symmetric(horizontal: 10),
+                    child: const Text("OR"),
+                  ),
+                  const Expanded(child: Divider()),
+                ],
+              ),
+              const SizedBox(height: 40),
               SizedBox(
                 width: MediaQuery.of(context).size.width,
                 child: ElevatedButton.icon(
                   onPressed: () => AuthService().signInWithGoogle(),
-                  label: const Text('Login with Google'),
+                  label: const Text(
+                    'Signup with Google',
+                    style: TextStyle(color: constants.bgColor),
+                  ),
                   icon: SvgPicture.string(
                     googleSvg,
                     width: 20,
@@ -232,7 +246,7 @@ class _RegisterModalState extends State<RegisterModal> {
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10),
                     ),
-                    backgroundColor: Colors.white,
+                    backgroundColor: constants.darkBlue,
                   ),
                 ),
               ),

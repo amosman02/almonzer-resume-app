@@ -8,6 +8,7 @@ import 'package:portfolio/contact.dart';
 import 'package:portfolio/screens/education.dart';
 import 'package:portfolio/screens/projects.dart';
 import 'package:portfolio/screens/welcome_screen.dart';
+import 'package:portfolio/services/auth_service.dart';
 import 'package:portfolio/widgets/kf_drawer.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:portfolio/constants/colors.dart' as constants;
@@ -118,6 +119,17 @@ class _MainWidgetState extends State<MainWidget> with TickerProviderStateMixin {
             color: constants.darkBlue,
           ),
           page: Contact(),
+        ),
+        KFDrawerItem.initWithPage(
+          text: const Text(
+            'Logout',
+            style: TextStyle(color: constants.danger, fontSize: 18),
+          ),
+          icon: const Icon(
+            FeatherIcons.logOut,
+            color: constants.danger,
+          ),
+          onPressed: AuthService().signOut,
         ),
       ],
     );
