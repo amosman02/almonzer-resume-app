@@ -4,6 +4,7 @@ import 'package:portfolio/widgets/kf_drawer.dart';
 import 'package:portfolio/constants/colors.dart' as constants;
 import 'package:url_launcher/url_launcher.dart';
 
+// ignore: must_be_immutable
 class Contact extends KFDrawerContent {
   Contact({super.key});
 

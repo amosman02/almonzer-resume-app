@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "238578878442",
+    "project_id": "portfolio-104bb",
+    "storage_bucket": "portfolio-104bb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:238578878442:android:1558e89622e8e330321493",
+        "android_client_info": {
+          "package_name": "com.almonzermozamel.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "238578878442-tijfl86vj3br4john87gj7laesbu05sd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAj_WQcBzyny0qJGPTo_rJNd883Y3P4BmM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "238578878442-tijfl86vj3br4john87gj7laesbu05sd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

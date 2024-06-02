@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/detailpage.dart';
+import 'package:portfolio/screens/detailpage.dart';
 import 'package:portfolio/widgets/kf_drawer.dart';
 
+// ignore: must_be_immutable
 class Home extends KFDrawerContent {
   Home({Key? key});
 

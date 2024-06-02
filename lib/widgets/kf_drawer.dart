@@ -24,6 +24,7 @@ class KFDrawerContent extends StatefulWidget {
   }
 }
 
+// ignore: must_be_immutable
 class KFDrawer extends StatefulWidget {
   KFDrawer({
     super.key,
@@ -57,7 +58,7 @@ class KFDrawer extends StatefulWidget {
   bool disableContentTap;
 
   @override
-  _KFDrawerState createState() => _KFDrawerState();
+  State<KFDrawer> createState() => _KFDrawerState();
 }
 
 class _KFDrawerState extends State<KFDrawer> with TickerProviderStateMixin {
@@ -116,9 +117,9 @@ class _KFDrawerState extends State<KFDrawer> with TickerProviderStateMixin {
     if (widget.controller?.items != null) {
       return widget.controller!.items.map((KFDrawerItem item) {
         item.onPressed ??= () {
-            widget.controller!.page = item.page;
-            if (widget.controller!.close != null) widget.controller!.close!();
-          };
+          widget.controller!.page = item.page;
+          if (widget.controller!.close != null) widget.controller!.close!();
+        };
         item.page?.onMenuPressed = _onMenuPressed;
         return item;
       }).toList();
@@ -274,6 +275,7 @@ class _KFDrawerState extends State<KFDrawer> with TickerProviderStateMixin {
   }
 }
 
+// ignore: must_be_immutable
 class _KFDrawer extends StatefulWidget {
   _KFDrawer({
     this.animationController,
@@ -353,6 +355,7 @@ class __KFDrawerState extends State<_KFDrawer> {
   }
 }
 
+// ignore: must_be_immutable
 class KFDrawerItem extends StatelessWidget {
   KFDrawerItem({super.key, this.onPressed, this.text, this.icon});
 

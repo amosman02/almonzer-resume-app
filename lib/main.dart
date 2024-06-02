@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:portfolio/experience.dart';
+import 'package:portfolio/screens/experience.dart';
 import 'package:portfolio/class_builder.dart';
-import 'package:portfolio/home.dart';
+import 'package:portfolio/screens/home.dart';
 import 'package:portfolio/contact.dart';
-import 'package:portfolio/education.dart';
-import 'package:portfolio/projects.dart';
+import 'package:portfolio/screens/education.dart';
+import 'package:portfolio/screens/projects.dart';
+import 'package:portfolio/screens/welcome_screen.dart';
 import 'package:portfolio/widgets/kf_drawer.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:portfolio/constants/colors.dart' as constants;
@@ -27,9 +28,10 @@ class MyApp extends StatelessWidget {
         fontFamily: GoogleFonts.montserratAlternates().fontFamily,
       ),
       debugShowCheckedModeBanner: false,
-      home: const MainWidget(
-        title: 'Home',
-      ),
+      home: const WelcomePage(),
+      // const MainWidget(
+      //   title: 'Home',
+      // ),
     );
   }
 }
@@ -39,7 +41,7 @@ class MainWidget extends StatefulWidget {
   final String title;
 
   @override
-  _MainWidgetState createState() => _MainWidgetState();
+  State<MainWidget> createState() => _MainWidgetState();
 }
 
 class _MainWidgetState extends State<MainWidget> with TickerProviderStateMixin {

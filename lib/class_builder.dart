@@ -1,8 +1,8 @@
-import 'package:portfolio/experience.dart';
-import 'package:portfolio/home.dart';
+import 'package:portfolio/screens/experience.dart';
+import 'package:portfolio/screens/home.dart';
 import 'package:portfolio/contact.dart';
-import 'package:portfolio/projects.dart';
-import 'package:portfolio/education.dart';
+import 'package:portfolio/screens/projects.dart';
+import 'package:portfolio/screens/education.dart';
 
 typedef Constructor<T> = T Function();
 
