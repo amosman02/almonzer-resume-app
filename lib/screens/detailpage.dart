@@ -6,7 +6,7 @@ class DetailPage extends StatefulWidget {
   const DetailPage({super.key, this.imgPath});
 
   @override
-  _DetailPageState createState() => _DetailPageState();
+  State<DetailPage> createState() => _DetailPageState();
 }
 
 class _DetailPageState extends State<DetailPage> {
@@ -153,7 +153,6 @@ class _DetailPageState extends State<DetailPage> {
                             onChanged: (newVal) {
                               setState(() {
                                 tempValue = newVal;
-                                print(newVal);
                               });
                             },
                             activeColor: Colors.green,
@@ -175,8 +174,9 @@ class _DetailPageState extends State<DetailPage> {
       height: 150,
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(25),
-          color:
-              value == true ? Colors.white : const Color.fromRGBO(75, 97, 88, 1.0)),
+          color: value == true
+              ? Colors.white
+              : const Color.fromRGBO(75, 97, 88, 1.0)),
       child: Column(
         children: <Widget>[
           const SizedBox(height: 20),
@@ -196,7 +196,6 @@ class _DetailPageState extends State<DetailPage> {
             onChanged: (newVal) {
               setState(() {
                 value = newVal;
-                print(newVal);
               });
             },
             activeColor: Colors.green,

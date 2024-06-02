@@ -4,10 +4,10 @@ import 'package:portfolio/widgets/kf_drawer.dart';
 
 // ignore: must_be_immutable
 class Home extends KFDrawerContent {
-  Home({Key? key});
+  Home({super.key});
 
   @override
-  _HomeState createState() => _HomeState();
+  State<Home> createState() => _HomeState();
 }
 
 class _HomeState extends State<Home> {

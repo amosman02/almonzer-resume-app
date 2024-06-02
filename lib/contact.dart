@@ -83,8 +83,6 @@ class _ContactState extends State<Contact> {
                               Uri(scheme: 'tel', path: '+971529938220');
                           if (await canLaunchUrl(url)) {
                             await launchUrl(url);
-                          } else {
-                            print('cannot lauch this url');
                           }
                         },
                         child: const Text(
