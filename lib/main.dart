@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio/screens/experience.dart';
@@ -10,8 +11,15 @@ import 'package:portfolio/screens/welcome_screen.dart';
 import 'package:portfolio/widgets/kf_drawer.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:portfolio/constants/colors.dart' as constants;
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+
   ClassBuilder.registerClasses();
   runApp(const MyApp());
 }
@@ -28,10 +36,15 @@ class MyApp extends StatelessWidget {
         fontFamily: GoogleFonts.montserratAlternates().fontFamily,
       ),
       debugShowCheckedModeBanner: false,
-      home: const WelcomePage(),
-      // const MainWidget(
-      //   title: 'Home',
-      // ),
+      home: StreamBuilder(
+        stream: FirebaseAuth.instance.authStateChanges(),
+        builder: (ctx, snapshot) {
+          if (snapshot.hasData) {
+            return const MainWidget(title: 'Home');
+          }
+          return const WelcomePage();
+        },
+      ),
     );
   }
 }
