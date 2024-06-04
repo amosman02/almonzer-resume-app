@@ -41,12 +41,6 @@ class _HomeState extends State<Home> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    const Row(
-                      children: <Widget>[
-                        Text("About me", style: TextStyle(fontSize: 17)),
-                      ],
-                    ),
-                    const SizedBox(height: 30),
                     const Text("Almonzer Osman",
                         style: TextStyle(
                             fontSize: 19, fontWeight: FontWeight.bold)),
