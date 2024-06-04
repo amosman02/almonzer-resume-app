@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shimmer/shimmer.dart';
 import 'package:portfolio/constants/colors.dart' as constants;
 
 class ExperienceCard extends StatelessWidget {
@@ -9,6 +10,7 @@ class ExperienceCard extends StatelessWidget {
     required this.title,
     required this.company,
     required this.description,
+    required this.imageLoadingFuture,
   });
 
   final bool isLight;
@@ -16,6 +18,7 @@ class ExperienceCard extends StatelessWidget {
   final String title;
   final String company;
   final String description;
+  final Future<void> imageLoadingFuture;
 
   @override
   Widget build(BuildContext context) {
@@ -49,16 +52,36 @@ class ExperienceCard extends StatelessWidget {
             ),
             child: Column(
               children: [
-                Container(
-                  height: 225,
-                  decoration: BoxDecoration(
-                    borderRadius:
-                        const BorderRadius.all(Radius.elliptical(20, 20)),
-                    image: DecorationImage(
-                      image: NetworkImage(imageUrl),
-                      fit: BoxFit.contain,
-                    ),
-                  ),
+                FutureBuilder<void>(
+                  future: imageLoadingFuture,
+                  builder: (context, snapshot) {
+                    if (snapshot.connectionState == ConnectionState.waiting) {
+                      return Shimmer.fromColors(
+                        baseColor: Colors.grey[300]!,
+                        highlightColor: Colors.grey[100]!,
+                        child: Container(
+                          height: 225,
+                          decoration: const BoxDecoration(
+                            borderRadius:
+                                BorderRadius.all(Radius.elliptical(20, 20)),
+                            color: Colors.white,
+                          ),
+                        ),
+                      );
+                    } else {
+                      return Container(
+                        height: 225,
+                        decoration: BoxDecoration(
+                          borderRadius:
+                              const BorderRadius.all(Radius.elliptical(20, 20)),
+                          image: DecorationImage(
+                            image: NetworkImage(imageUrl),
+                            fit: BoxFit.contain,
+                          ),
+                        ),
+                      );
+                    }
+                  },
                 ),
                 const SizedBox(height: 15),
                 Text(

@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:portfolio/widgets/experience_card.dart';
 import 'package:portfolio/widgets/kf_drawer.dart';
@@ -35,8 +37,7 @@ class _ExperienceState extends State<Experience> {
 • Achieved remarkable results, including a 900% increase in clients’ website traffic and the generation of over 10,000 leads through targeted paid advertising campaigns.
 • Implemented innovative SEO strategies, resulting in a significant 32.76% improvement in organic search rankings for critical target keywords, enhancing online visibility and brand recognition.
 • Demonstrated exceptional leadership skills by effectively managing and mentoring a team of digital marketing professionals, fostering a collaborative and supportive work environment conducive to achieving team goals.
-• Provided strategic guidance and direction to the growing digital marketing team, leveraging strong communication and interpersonal skills to ensure alignment with business objectives.
-""",
+• Provided strategic guidance and direction to the growing digital marketing team, leveraging strong communication and interpersonal skills to ensure alignment with business objectives.""",
         'isLight': true
       },
       {
@@ -84,6 +85,8 @@ class _ExperienceState extends State<Experience> {
                         title: exp['title'] as String,
                         company: exp['company'] as String,
                         description: exp['description'] as String,
+                        imageLoadingFuture:
+                            _loadNetworkImage(exp['imageUrl'] as String),
                       ),
                     )
                     .toList(),
@@ -93,5 +96,23 @@ class _ExperienceState extends State<Experience> {
         ),
       ),
     );
+  }
+
+  Future<void> _loadNetworkImage(String url) {
+    final Completer<void> completer = Completer<void>();
+    final Image image = Image.network(url);
+
+    image.image.resolve(const ImageConfiguration()).addListener(
+          ImageStreamListener(
+            (ImageInfo info, bool synchronousCall) {
+              completer.complete();
+            },
+            onError: (Object error, StackTrace? stackTrace) {
+              completer.completeError(error, stackTrace);
+            },
+          ),
+        );
+
+    return completer.future;
   }
 }

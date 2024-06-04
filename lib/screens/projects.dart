@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:portfolio/widgets/experience_card.dart';
 import 'package:portfolio/widgets/kf_drawer.dart';
@@ -80,6 +82,8 @@ Developed a dynamic profile webpage for wholesalers using the MERN Stack (MongoD
                         title: exp['title'] as String,
                         company: exp['company'] as String,
                         description: exp['description'] as String,
+                        imageLoadingFuture:
+                            _loadNetworkImage(exp['imageUrl'] as String),
                       ),
                     )
                     .toList(),
@@ -89,5 +93,23 @@ Developed a dynamic profile webpage for wholesalers using the MERN Stack (MongoD
         ),
       ),
     );
+  }
+
+  Future<void> _loadNetworkImage(String url) {
+    final Completer<void> completer = Completer<void>();
+    final Image image = Image.network(url);
+
+    image.image.resolve(const ImageConfiguration()).addListener(
+          ImageStreamListener(
+            (ImageInfo info, bool synchronousCall) {
+              completer.complete();
+            },
+            onError: (Object error, StackTrace? stackTrace) {
+              completer.completeError(error, stackTrace);
+            },
+          ),
+        );
+
+    return completer.future;
   }
 }
