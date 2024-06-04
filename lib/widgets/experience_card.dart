@@ -56,7 +56,7 @@ class ExperienceCard extends StatelessWidget {
                         const BorderRadius.all(Radius.elliptical(20, 20)),
                     image: DecorationImage(
                       image: NetworkImage(imageUrl),
-                      fit: BoxFit.cover,
+                      fit: BoxFit.contain,
                     ),
                   ),
                 ),
