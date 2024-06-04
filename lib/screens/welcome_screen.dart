@@ -35,7 +35,7 @@ class WelcomePage extends StatelessWidget {
                 ),
               ),
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   const Column(
                     mainAxisAlignment: MainAxisAlignment.start,
@@ -43,15 +43,13 @@ class WelcomePage extends StatelessWidget {
                     children: [
                       Padding(
                         padding: EdgeInsets.only(bottom: 16),
-                        child: Text('Checkedin',
+                        child: Text('Turn your app idea into reality',
                             style: TextStyle(
                                 fontFamily: 'inter',
                                 fontWeight: FontWeight.w700,
-                                fontSize: 32,
+                                fontSize: 24,
                                 color: Colors.white)),
                       ),
-                      Text("Help you to get your lagguange out of your concer",
-                          style: TextStyle(color: Colors.white)),
                     ],
                   ),
                   Column(
@@ -135,7 +133,7 @@ class WelcomePage extends StatelessWidget {
                         child: RichText(
                           textAlign: TextAlign.center,
                           text: TextSpan(
-                            text: 'By joining Checkedin, you agree to our ',
+                            text: 'By joining my app, you agree to my ',
                             style: TextStyle(
                                 color: Colors.white.withOpacity(0.6),
                                 height: 150 / 100),
