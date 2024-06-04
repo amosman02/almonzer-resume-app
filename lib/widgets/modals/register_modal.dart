@@ -226,12 +226,17 @@ class _RegisterModalState extends State<RegisterModal> {
               ),
               const SizedBox(height: 40),
               SizedBox(
+                height: 60,
                 width: MediaQuery.of(context).size.width,
                 child: ElevatedButton.icon(
                   onPressed: () => AuthService().signInWithGoogle(),
                   label: const Text(
                     'Signup with Google',
-                    style: TextStyle(color: constants.bgColor),
+                    style: TextStyle(
+                      color: constants.bgColor,
+                      fontSize: 16,
+                      fontWeight: FontWeight.w600,
+                    ),
                   ),
                   icon: SvgPicture.string(
                     googleSvg,
