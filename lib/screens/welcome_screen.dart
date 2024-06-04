@@ -82,12 +82,14 @@ class WelcomePage extends StatelessWidget {
                                 borderRadius: BorderRadius.circular(10)),
                             backgroundColor: constants.darkBlue,
                           ),
-                          child: const Text('Get Started',
-                              style: TextStyle(
-                                  color: constants.bgColor,
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.w600,
-                                  fontFamily: 'inter')),
+                          child: const Text(
+                            'Get Started',
+                            style: TextStyle(
+                              color: constants.bgColor,
+                              fontSize: 16,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
                         ),
                       ),
                       const SizedBox(height: 16),
@@ -123,7 +125,6 @@ class WelcomePage extends StatelessWidget {
                               color: constants.bgColor,
                               fontSize: 16,
                               fontWeight: FontWeight.w600,
-                              fontFamily: 'inter',
                             ),
                           ),
                         ),

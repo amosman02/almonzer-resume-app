@@ -1,7 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio/constants/colors.dart' as constants;
 import 'package:portfolio/services/auth_service.dart';
 import 'package:portfolio/widgets/custom_text_field.dart';
@@ -41,8 +40,6 @@ class _RegisterModalState extends State<RegisterModal> {
           .set({
         'email': _enteredEmail,
         'name': _enteredName,
-        'image_url':
-            'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png',
       });
       if (!mounted) return;
       Navigator.of(context).pop();
@@ -165,13 +162,12 @@ class _RegisterModalState extends State<RegisterModal> {
                               borderRadius: BorderRadius.circular(10)),
                           backgroundColor: constants.darkBlue,
                         ),
-                        child: Text(
+                        child: const Text(
                           'Register',
                           style: TextStyle(
                             color: constants.bgColor,
                             fontSize: 16,
                             fontWeight: FontWeight.w600,
-                            fontFamily: GoogleFonts.inter().fontFamily,
                           ),
                         ),
                       ),
@@ -203,15 +199,14 @@ class _RegisterModalState extends State<RegisterModal> {
                     // backgroundColor: Colors.white,
                     ),
                 child: RichText(
-                  text: TextSpan(
+                  text: const TextSpan(
                     text: 'Have an account? ',
-                    style: const TextStyle(color: Colors.grey),
+                    style: TextStyle(color: Colors.grey),
                     children: [
                       TextSpan(
                           style: TextStyle(
                             color: constants.darkBeige,
                             fontWeight: FontWeight.w700,
-                            fontFamily: GoogleFonts.inter().fontFamily,
                           ),
                           text: 'Log in'),
                     ],
