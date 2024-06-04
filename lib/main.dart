@@ -8,6 +8,7 @@ import 'package:portfolio/screens/home.dart';
 import 'package:portfolio/contact.dart';
 import 'package:portfolio/screens/education.dart';
 import 'package:portfolio/screens/projects.dart';
+import 'package:portfolio/screens/weather_screen.dart';
 import 'package:portfolio/screens/welcome_screen.dart';
 import 'package:portfolio/services/auth_service.dart';
 import 'package:portfolio/widgets/kf_drawer.dart';
@@ -131,6 +132,17 @@ class _MainWidgetState extends State<MainWidget> with TickerProviderStateMixin {
             color: constants.darkBlue,
           ),
           page: FeedbackScreen(),
+        ),
+        KFDrawerItem.initWithPage(
+          text: const Text(
+            'Weather API',
+            style: TextStyle(color: constants.darkBlue, fontSize: 18),
+          ),
+          icon: const Icon(
+            FeatherIcons.cloudRain,
+            color: constants.darkBlue,
+          ),
+          page: WeatherScreen(),
         ),
         KFDrawerItem.initWithPage(
           text: const Text(
