@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:portfolio/widgets/experience_card.dart';
 import 'package:portfolio/widgets/kf_drawer.dart';
 
-// ignore: must_be_immutable
 class Experience extends KFDrawerContent {
   Experience({super.key});
 
@@ -13,9 +12,20 @@ class Experience extends KFDrawerContent {
 }
 
 class _ExperienceState extends State<Experience> {
+  final List<Map<String, dynamic>> _experienceList = [];
+  final ScrollController _scrollController = ScrollController();
+  bool _isLoadingMore = false;
+
   @override
-  Widget build(BuildContext context) {
-    final experienceList = [
+  void initState() {
+    super.initState();
+    _loadInitialExperiences();
+    _scrollController.addListener(_onScroll);
+  }
+
+  void _loadInitialExperiences() {
+    // Add initial experiences to the list
+    _experienceList.addAll([
       {
         'title': 'Software Engineer',
         'company': 'Ciro Technologies',
@@ -47,12 +57,52 @@ class _ExperienceState extends State<Experience> {
         'description':
             """• Empowered over 200 students by imparting valuable skills in PHP, IoT, Arduino, sensors, and emerging technologies, fostering a passion for innovation and technological advancement.
 • Introduced students to the potential of IoT through engaging and interactive activities, stimulating creativity, and encouraging exploration of its diverse applications.
-• Bridged the gap between theory and practice by leading students through 10+ hands-on lab experiments, facilitating practical skills development and solidifying understanding.
-""",
+• Bridged the gap between theory and practice by leading students through 10+ hands-on lab experiments, facilitating practical skills development and solidifying understanding.""",
         'isLight': false
-      }
-    ];
+      },
+    ]);
+  }
 
+  Future<void> _loadMoreExperiences() async {
+    if (_isLoadingMore) return;
+
+    setState(() {
+      _isLoadingMore = true;
+    });
+
+    // Simulate network request
+    await Future.delayed(const Duration(seconds: 2));
+
+    // Add more dummy experiences
+    setState(() {
+      _experienceList.addAll(List.generate(
+          5,
+          (index) => {
+                'title': 'Dummy Experience $index',
+                'company': 'Dummy Company',
+                'imageUrl': 'https://via.placeholder.com/150',
+                'description': 'Showing off my work $index',
+                'isLight': index % 2 == 0
+              }));
+      _isLoadingMore = false;
+    });
+  }
+
+  void _onScroll() {
+    if (_scrollController.position.extentAfter < 200) {
+      _loadMoreExperiences();
+    }
+  }
+
+  @override
+  void dispose() {
+    _scrollController.removeListener(_onScroll);
+    _scrollController.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
     return SafeArea(
       child: Center(
         child: Column(
@@ -76,20 +126,26 @@ class _ExperienceState extends State<Experience> {
               ],
             ),
             Expanded(
-              child: ListView(
-                children: experienceList
-                    .map(
-                      (exp) => ExperienceCard(
-                        isLight: exp['isLight'] as bool,
-                        imageUrl: exp['imageUrl'] as String,
-                        title: exp['title'] as String,
-                        company: exp['company'] as String,
-                        description: exp['description'] as String,
-                        imageLoadingFuture:
-                            _loadNetworkImage(exp['imageUrl'] as String),
-                      ),
-                    )
-                    .toList(),
+              child: ListView.builder(
+                controller: _scrollController,
+                itemCount: _experienceList.length + 1,
+                itemBuilder: (context, index) {
+                  if (index == _experienceList.length) {
+                    return _isLoadingMore
+                        ? const Center(child: CircularProgressIndicator())
+                        : const SizedBox.shrink();
+                  }
+                  final exp = _experienceList[index];
+                  return ExperienceCard(
+                    isLight: exp['isLight'] as bool,
+                    imageUrl: exp['imageUrl'] as String,
+                    title: exp['title'] as String,
+                    company: exp['company'] as String,
+                    description: exp['description'] as String,
+                    imageLoadingFuture:
+                        _loadNetworkImage(exp['imageUrl'] as String),
+                  );
+                },
               ),
             ),
           ],
