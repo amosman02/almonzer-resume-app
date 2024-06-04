@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/screens/detailpage.dart';
 import 'package:portfolio/widgets/kf_drawer.dart';
+import 'package:portfolio/widgets/pdf_share.dart';
 
 // ignore: must_be_immutable
 class Home extends KFDrawerContent {
@@ -19,6 +20,7 @@ class _HomeState extends State<Home> {
           Column(
             children: <Widget>[
               Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
                   ClipRRect(
                     borderRadius: const BorderRadius.all(Radius.circular(32.0)),
@@ -34,6 +36,7 @@ class _HomeState extends State<Home> {
                       ),
                     ),
                   ),
+                  const PDFShareWidget()
                 ],
               ),
               Padding(
