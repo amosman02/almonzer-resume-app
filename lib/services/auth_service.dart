@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
@@ -17,7 +18,18 @@ class AuthService {
     );
 
     // Finally let's sign in
-    return await FirebaseAuth.instance.signInWithCredential(credential);
+    final userCredentials =
+        await FirebaseAuth.instance.signInWithCredential(credential);
+
+    await FirebaseFirestore.instance
+        .collection('users')
+        .doc(userCredentials.user!.uid)
+        .set({
+      'email': userCredentials.user!.email,
+      'name': userCredentials.user!.displayName,
+    });
+
+    return userCredentials;
   }
 
   // Signout user

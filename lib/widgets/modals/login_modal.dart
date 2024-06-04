@@ -18,6 +18,7 @@ class _LoginModalState extends State<LoginModal> {
   final _formKey = GlobalKey<FormState>();
   var _enteredEmail = '';
   var _enteredPassword = '';
+  var isLoading = false;
 
   void _submit() async {
     final isValid = _formKey.currentState!.validate();
@@ -29,14 +30,17 @@ class _LoginModalState extends State<LoginModal> {
     _formKey.currentState!.save();
 
     try {
+      isLoading = true;
       await _firebase.signInWithEmailAndPassword(
           email: _enteredEmail, password: _enteredPassword);
       if (!mounted) return;
       Navigator.of(context).pop();
+      isLoading = false;
     } on FirebaseAuthException catch (error) {
       ScaffoldMessenger.of(context).clearSnackBars();
       ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(content: Text(error.message ?? 'Authentication failed!')));
+      isLoading = false;
     }
   }
 
@@ -142,12 +146,18 @@ class _LoginModalState extends State<LoginModal> {
                               borderRadius: BorderRadius.circular(10)),
                           backgroundColor: constants.darkBlue,
                         ),
-                        child: const Text('Login',
-                            style: TextStyle(
+                        child: isLoading
+                            ? const CircularProgressIndicator(
                                 color: constants.bgColor,
-                                fontSize: 16,
-                                fontWeight: FontWeight.w600,
-                                fontFamily: 'inter')),
+                              )
+                            : const Text(
+                                'Login',
+                                style: TextStyle(
+                                  color: constants.bgColor,
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w600,
+                                ),
+                              ),
                       ),
                     ),
                   ],

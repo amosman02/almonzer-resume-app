@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio/screens/experience.dart';
 import 'package:portfolio/class_builder.dart';
+import 'package:portfolio/screens/feedback_screen.dart';
 import 'package:portfolio/screens/home.dart';
 import 'package:portfolio/contact.dart';
 import 'package:portfolio/screens/education.dart';
@@ -34,7 +35,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData(
         primarySwatch: Colors.blue,
-        fontFamily: GoogleFonts.montserratAlternates().fontFamily,
+        fontFamily: GoogleFonts.nunitoSans().fontFamily,
       ),
       debugShowCheckedModeBanner: false,
       home: StreamBuilder(
@@ -122,6 +123,17 @@ class _MainWidgetState extends State<MainWidget> with TickerProviderStateMixin {
         ),
         KFDrawerItem.initWithPage(
           text: const Text(
+            'Feedback Hall',
+            style: TextStyle(color: constants.darkBlue, fontSize: 18),
+          ),
+          icon: const Icon(
+            FeatherIcons.star,
+            color: constants.darkBlue,
+          ),
+          page: FeedbackScreen(),
+        ),
+        KFDrawerItem.initWithPage(
+          text: const Text(
             'Logout',
             style: TextStyle(color: constants.danger, fontSize: 18),
           ),
@@ -172,12 +184,14 @@ class _MainWidgetState extends State<MainWidget> with TickerProviderStateMixin {
                           color: constants.darkBlue,
                         )),
                     SizedBox(height: 2),
-                    Text('Software Engineer',
-                        style: TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.w500,
-                          color: constants.darkBlue,
-                        )),
+                    Text(
+                      'Software Engineer',
+                      style: TextStyle(
+                        fontSize: 15,
+                        fontWeight: FontWeight.w500,
+                        color: constants.darkBlue,
+                      ),
+                    ),
                   ],
                 )
               ],
