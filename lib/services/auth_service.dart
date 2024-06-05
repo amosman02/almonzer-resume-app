@@ -1,10 +1,11 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 class AuthService {
   // Google sign in
-  signInWithGoogle() async {
+  signInWithGoogle(context) async {
     // Begin interactive signin with process
     final GoogleSignInAccount? gUser = await GoogleSignIn().signIn();
 
@@ -28,7 +29,7 @@ class AuthService {
       'email': userCredentials.user!.email,
       'name': userCredentials.user!.displayName,
     });
-
+    Navigator.of(context).pop();
     return userCredentials;
   }
 

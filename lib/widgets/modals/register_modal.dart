@@ -229,7 +229,7 @@ class _RegisterModalState extends State<RegisterModal> {
                 height: 60,
                 width: MediaQuery.of(context).size.width,
                 child: ElevatedButton.icon(
-                  onPressed: () => AuthService().signInWithGoogle(),
+                  onPressed: () => AuthService().signInWithGoogle(context),
                   label: const Text(
                     'Signup with Google',
                     style: TextStyle(

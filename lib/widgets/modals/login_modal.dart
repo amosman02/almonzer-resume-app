@@ -179,7 +179,7 @@ class _LoginModalState extends State<LoginModal> {
                 height: 60,
                 width: MediaQuery.of(context).size.width,
                 child: ElevatedButton.icon(
-                  onPressed: () => AuthService().signInWithGoogle(),
+                  onPressed: () => AuthService().signInWithGoogle(context),
                   label: const Text(
                     'Login with Google',
                     style: TextStyle(
