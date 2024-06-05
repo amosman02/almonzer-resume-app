@@ -39,12 +39,18 @@ class _FeedbackModalState extends State<FeedbackModal> {
       isLoading = true;
       final user = FirebaseAuth.instance.currentUser!;
       final collection = FirebaseFirestore.instance.collection('feedback');
+      final userDoc = await FirebaseFirestore.instance
+          .collection('users')
+          .doc(user.uid)
+          .get();
+
+      final userData = userDoc.data();
 
       if (!widget.isEditing) {
         await collection.add({
           'user_id': user.uid,
           'email': user.email,
-          'name': user.displayName,
+          'name': userData?['name'],
           'feedback': _enteredFeedback,
           'created_at': Timestamp.now(),
         });
@@ -69,6 +75,7 @@ class _FeedbackModalState extends State<FeedbackModal> {
 
   @override
   Widget build(BuildContext context) {
+    print(FirebaseAuth.instance.currentUser!.displayName);
     return Wrap(
       children: [
         Container(
