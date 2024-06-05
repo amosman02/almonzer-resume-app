@@ -8,6 +8,7 @@ import 'package:portfolio/screens/home.dart';
 import 'package:portfolio/contact.dart';
 import 'package:portfolio/screens/education.dart';
 import 'package:portfolio/screens/projects.dart';
+import 'package:portfolio/screens/splash_screen.dart';
 import 'package:portfolio/screens/weather_screen.dart';
 import 'package:portfolio/screens/welcome_screen.dart';
 import 'package:portfolio/services/auth_service.dart';
@@ -39,15 +40,24 @@ class MyApp extends StatelessWidget {
         fontFamily: GoogleFonts.nunitoSans().fontFamily,
       ),
       debugShowCheckedModeBanner: false,
-      home: StreamBuilder(
-        stream: FirebaseAuth.instance.authStateChanges(),
-        builder: (ctx, snapshot) {
-          if (snapshot.hasData) {
-            return const MainWidget(title: 'Home');
-          }
-          return const WelcomePage();
-        },
-      ),
+      home: const SplashScreen(),
+    );
+  }
+}
+
+class AppEnterance extends StatelessWidget {
+  const AppEnterance({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return StreamBuilder(
+      stream: FirebaseAuth.instance.authStateChanges(),
+      builder: (ctx, snapshot) {
+        if (snapshot.hasData) {
+          return const MainWidget(title: 'Home');
+        }
+        return const WelcomePage();
+      },
     );
   }
 }
