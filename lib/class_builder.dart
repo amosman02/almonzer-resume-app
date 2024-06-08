@@ -1,8 +1,8 @@
-import 'package:portfolio/screens/experience.dart';
-import 'package:portfolio/screens/home.dart';
+import 'package:portfolio/screens/experience_screen.dart';
+import 'package:portfolio/screens/home_screen.dart';
 import 'package:portfolio/contact.dart';
-import 'package:portfolio/screens/projects.dart';
-import 'package:portfolio/screens/education.dart';
+import 'package:portfolio/screens/projects_screen.dart';
+import 'package:portfolio/screens/education_screen.dart';
 
 typedef Constructor<T> = T Function();
 
@@ -15,10 +15,10 @@ void register<T>(Constructor<T> constructor) {
 
 class ClassBuilder {
   static void registerClasses() {
-    register<Home>(() => Home());
-    register<Experience>(() => Experience());
-    register<Projects>(() => Projects());
-    register<Education>(() => Education());
+    register<HomeScreen>(() => HomeScreen());
+    register<ExperienceScreen>(() => ExperienceScreen());
+    register<ProjectsScreen>(() => ProjectsScreen());
+    register<EducationScreen>(() => EducationScreen());
     register<Contact>(() => Contact());
   }
 

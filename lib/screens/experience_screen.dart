@@ -5,14 +5,14 @@ import 'package:portfolio/widgets/experience_card.dart';
 import 'package:portfolio/widgets/kf_drawer.dart';
 
 // ignore: must_be_immutable
-class Experience extends KFDrawerContent {
-  Experience({super.key});
+class ExperienceScreen extends KFDrawerContent {
+  ExperienceScreen({super.key});
 
   @override
-  State<Experience> createState() => _ExperienceState();
+  State<ExperienceScreen> createState() => _ExperienceState();
 }
 
-class _ExperienceState extends State<Experience> {
+class _ExperienceState extends State<ExperienceScreen> {
   final List<Map<String, dynamic>> _experienceList = [];
   final ScrollController _scrollController = ScrollController();
   bool _isLoadingMore = false;

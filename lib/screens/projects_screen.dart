@@ -5,14 +5,14 @@ import 'package:portfolio/widgets/experience_card.dart';
 import 'package:portfolio/widgets/kf_drawer.dart';
 
 // ignore: must_be_immutable
-class Projects extends KFDrawerContent {
-  Projects({super.key});
+class ProjectsScreen extends KFDrawerContent {
+  ProjectsScreen({super.key});
 
   @override
-  State<Projects> createState() => _ProjectsState();
+  State<ProjectsScreen> createState() => _ProjectsState();
 }
 
-class _ProjectsState extends State<Projects> {
+class _ProjectsState extends State<ProjectsScreen> {
   @override
   Widget build(BuildContext context) {
     final experienceList = [

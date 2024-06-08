@@ -5,14 +5,14 @@ import 'package:portfolio/widgets/experience_card.dart';
 import 'package:portfolio/widgets/kf_drawer.dart';
 
 // ignore: must_be_immutable
-class Education extends KFDrawerContent {
-  Education({super.key});
+class EducationScreen extends KFDrawerContent {
+  EducationScreen({super.key});
 
   @override
-  State<Education> createState() => _EducationState();
+  State<EducationScreen> createState() => _EducationState();
 }
 
-class _EducationState extends State<Education> {
+class _EducationState extends State<EducationScreen> {
   @override
   Widget build(BuildContext context) {
     final educationList = [

@@ -1,13 +1,13 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:portfolio/screens/experience.dart';
+import 'package:portfolio/screens/experience_screen.dart';
 import 'package:portfolio/class_builder.dart';
 import 'package:portfolio/screens/feedback_screen.dart';
-import 'package:portfolio/screens/home.dart';
+import 'package:portfolio/screens/home_screen.dart';
 import 'package:portfolio/contact.dart';
-import 'package:portfolio/screens/education.dart';
-import 'package:portfolio/screens/projects.dart';
+import 'package:portfolio/screens/education_screen.dart';
+import 'package:portfolio/screens/projects_screen.dart';
 import 'package:portfolio/screens/splash_screen.dart';
 import 'package:portfolio/screens/weather_screen.dart';
 import 'package:portfolio/screens/welcome_screen.dart';
@@ -86,7 +86,7 @@ class _MainWidgetState extends State<MainWidget> with TickerProviderStateMixin {
             FeatherIcons.home,
             color: constants.darkBlue,
           ),
-          page: Home(),
+          page: HomeScreen(),
         ),
         KFDrawerItem.initWithPage(
           text: const Text(
@@ -97,7 +97,7 @@ class _MainWidgetState extends State<MainWidget> with TickerProviderStateMixin {
             FeatherIcons.briefcase,
             color: constants.darkBlue,
           ),
-          page: Experience(),
+          page: ExperienceScreen(),
         ),
         KFDrawerItem.initWithPage(
           text: const Text(
@@ -108,7 +108,7 @@ class _MainWidgetState extends State<MainWidget> with TickerProviderStateMixin {
             FeatherIcons.cpu,
             color: constants.darkBlue,
           ),
-          page: Projects(),
+          page: ProjectsScreen(),
         ),
         KFDrawerItem.initWithPage(
           text: const Text(
@@ -119,7 +119,7 @@ class _MainWidgetState extends State<MainWidget> with TickerProviderStateMixin {
             FeatherIcons.feather,
             color: constants.darkBlue,
           ),
-          page: Education(),
+          page: EducationScreen(),
         ),
         KFDrawerItem.initWithPage(
           text: const Text(

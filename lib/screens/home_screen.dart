@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/screens/detailpage.dart';
+import 'package:portfolio/screens/details_screen.dart';
 import 'package:portfolio/widgets/kf_drawer.dart';
 import 'package:portfolio/widgets/pdf_share.dart';
 
 // ignore: must_be_immutable
-class Home extends KFDrawerContent {
-  Home({super.key});
+class HomeScreen extends KFDrawerContent {
+  HomeScreen({super.key});
 
   @override
-  State<Home> createState() => _HomeState();
+  State<HomeScreen> createState() => _HomeState();
 }
 
-class _HomeState extends State<Home> {
+class _HomeState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -86,7 +86,7 @@ class _HomeState extends State<Home> {
     return InkWell(
       onTap: () {
         Navigator.of(context).push(MaterialPageRoute(
-            builder: (context) => DetailPage(
+            builder: (context) => DetailsScreen(
                   imgPath: imgpath,
                 )));
       },

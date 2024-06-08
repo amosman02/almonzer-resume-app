@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 
-class DetailPage extends StatefulWidget {
+class DetailsScreen extends StatefulWidget {
   final String imgPath;
 
-  const DetailPage({super.key, required this.imgPath});
+  const DetailsScreen({super.key, required this.imgPath});
 
   @override
-  State<DetailPage> createState() => _DetailPageState();
+  State<DetailsScreen> createState() => _DetailsScreenState();
 }
 
-class _DetailPageState extends State<DetailPage> {
+class _DetailsScreenState extends State<DetailsScreen> {
   bool tempValue = false;
 
   @override
