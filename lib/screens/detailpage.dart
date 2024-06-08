@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
 class DetailPage extends StatefulWidget {
-  final imgPath;
+  final String imgPath;
 
-  const DetailPage({super.key, this.imgPath});
+  const DetailPage({super.key, required this.imgPath});
 
   @override
   State<DetailPage> createState() => _DetailPageState();

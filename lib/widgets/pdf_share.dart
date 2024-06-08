@@ -1,7 +1,6 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter/widgets.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:portfolio/constants/colors.dart' as constants;
@@ -28,7 +27,7 @@ class PDFShareWidget extends StatelessWidget {
       // Share the PDF file
       await Share.shareXFiles([XFile(file.path)], text: 'Check out my resume!');
     } catch (e) {
-      print('error: $e');
+      throw Exception('error: $e');
     }
   }
 

@@ -75,7 +75,6 @@ class _FeedbackModalState extends State<FeedbackModal> {
 
   @override
   Widget build(BuildContext context) {
-    print(FirebaseAuth.instance.currentUser!.displayName);
     return Wrap(
       children: [
         Container(
